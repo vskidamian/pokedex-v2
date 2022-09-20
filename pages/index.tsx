@@ -1,11 +1,24 @@
-import type { NextPage } from 'next'
+import type { GetStaticProps, NextPage } from 'next'
+import { get } from '../services/requests';
 
-const Home: NextPage = () => {
+const PokemonList: NextPage = ({pokemon}) => {
+  console.log(pokemon)
   return (
     <div>
-      Test
+      {JSON.stringify(pokemon)}
     </div>
   )
 }
 
-export default Home
+export async function getStaticProps() {
+  const res = await get({url: 'pokemon'});
+
+  return {
+    props: {
+      pokemon: res,
+    },
+  };
+}
+
+
+export default PokemonList
