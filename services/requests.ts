@@ -6,13 +6,13 @@ type Get =  {
     params?: any;
 }
 
-export const get = async (reqParams: Get) => {
+export const get = async <T>(reqParams: Get): Promise<T> => {
     const url = reqParams.url ? reqParams.url : `https://pokeapi.co/api/v2/${reqParams.uri}`;
 
     try {
         const res = await axios.get(url, reqParams.params);
         return res.data
     } catch (error) {
-        console.error('Error:', error);
+        throw(error)
     }
 }
