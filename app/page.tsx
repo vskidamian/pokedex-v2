@@ -1,8 +1,9 @@
 import { get } from "../services/requests";
+import { Layout } from "../components";
 
 const Page = async () => {
   const pokemon = await getPokemonList();
-  return <div>{JSON.stringify(pokemon)}</div>;
+  return <Layout.Content>{JSON.stringify(pokemon)}</Layout.Content>;
 };
 
 async function getPokemonList() {
