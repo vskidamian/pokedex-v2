@@ -3,7 +3,13 @@ import { Layout } from "../components";
 
 const Page = async () => {
   const pokemon = await getPokemonList();
-  return <Layout.Content>{JSON.stringify(pokemon)}</Layout.Content>;
+  return (
+    <Layout.Content>
+      TEST
+      <br />
+      {JSON.stringify(pokemon)}
+    </Layout.Content>
+  );
 };
 
 async function getPokemonList() {

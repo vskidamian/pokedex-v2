@@ -1,5 +1,5 @@
-import { Layout } from "../components";
-import ErrorPage from "next/error";
+import { Header } from "../components";
+import "../styles/globals.css";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -7,8 +7,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
-      <body>
-        <Layout.Content>{children}</Layout.Content>
+      <body className="min-h-screen bg-pokedex">
+        <Header.Content />
+        {children}
       </body>
     </html>
   );

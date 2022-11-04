@@ -7,11 +7,9 @@ type Props = {
 export const Content = ({ children }: Props) => {
   return (
     <>
-      <div className="min-h-screen bg-background block">
+      <div className="min-h-screen bg-red-700">
         <main>{children}</main>
       </div>
     </>
   );
 };
-
-export default Content;
