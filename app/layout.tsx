@@ -1,4 +1,4 @@
-import { Header } from "../components";
+import { Header } from "@ui/Header";
 import "../styles/globals.css";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -8,7 +8,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
       <body className="min-h-screen bg-pokedex">
-        <Header.Content />
+        <Header />
         {children}
       </body>
     </html>

@@ -4,10 +4,10 @@ type Props = {
   children: ReactNode;
 };
 
-export const Content = ({ children }: Props) => {
+export const Layout = ({ children }: Props) => {
   return (
     <>
-      <div className="min-h-screen bg-red-700">
+      <div className="min-h-screen">
         <main>{children}</main>
       </div>
     </>

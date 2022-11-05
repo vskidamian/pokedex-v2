@@ -1,14 +1,14 @@
 import { get } from "../services/requests";
-import { Layout } from "../components";
+import { Layout } from "@ui/Layout";
 
 const Page = async () => {
   const pokemon = await getPokemonList();
   return (
-    <Layout.Content>
+    <Layout>
       TEST
       <br />
       {JSON.stringify(pokemon)}
-    </Layout.Content>
+    </Layout>
   );
 };
 
