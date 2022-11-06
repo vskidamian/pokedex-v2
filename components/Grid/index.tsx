@@ -5,7 +5,6 @@ type GridProps = {
   className?: string;
 };
 
-export const Grid = ({ children, className }: GridProps) => {
-  console.log(children);
+export const Grid = ({ children, className = "" }: GridProps) => {
   return <div className={`flex flex-wrap ${className}`}>{children}</div>;
 };

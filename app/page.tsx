@@ -1,13 +1,21 @@
 import { get } from "../services/requests";
 import { Layout } from "@ui/Layout";
+import { Grid } from "@ui/Grid";
+import { GridItem } from "@ui/GridItem";
 
 const Page = async () => {
-  const pokemon = await getPokemonList();
+  const pokemons = await getPokemonList();
   return (
     <Layout>
-      TEST
-      <br />
-      {JSON.stringify(pokemon)}
+      <Grid>
+        {pokemons?.results
+          ? pokemons.results.map((pokemon) => (
+              <GridItem key={pokemon.id} size={3}>
+                {pokemon.name}
+              </GridItem>
+            ))
+          : null}
+      </Grid>
     </Layout>
   );
 };
@@ -19,20 +27,15 @@ async function getPokemonList() {
 
     if (pokemonListData.length)
       return {
-        props: {
-          pokemon: {
-            ...pokemonList,
-            results: pokemonListData.map((pokemon) => ({
-              id: pokemon.id,
-              name: pokemon.species.name,
-              img: pokemon.sprites.other["official-artwork"]?.front_default ?? "",
-            })),
-          },
-        },
+        ...pokemonList,
+        results: pokemonListData.map((pokemon) => ({
+          id: pokemon.id,
+          name: pokemon.species.name,
+          img: pokemon.sprites.other["official-artwork"]?.front_default ?? "",
+        })),
       };
   } catch (err) {
     console.log(err);
-    return { notFound: true };
   }
 }
 
