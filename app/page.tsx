@@ -1,22 +1,27 @@
 import { get } from "../services/requests";
-import { Layout } from "@ui/Layout";
 import { Grid } from "@ui/Grid";
 import { GridItem } from "@ui/GridItem";
+import { Container } from "@ui/Container";
+import { Card } from "@ui/Card";
+import Image from "next/image";
 
 const Page = async () => {
   const pokemons = await getPokemonList();
   return (
-    <Layout>
+    <Container className="mt-8">
       <Grid>
         {pokemons?.results
           ? pokemons.results.map((pokemon) => (
-              <GridItem key={pokemon.id} size={3}>
-                {pokemon.name}
+              <GridItem key={pokemon.id} size={2}>
+                <Card>
+                  <div>{pokemon.name}</div>
+                  <Image src={pokemon.img} alt={pokemon.name} width={180} height={180} />
+                </Card>
               </GridItem>
             ))
           : null}
       </Grid>
-    </Layout>
+    </Container>
   );
 };
 
