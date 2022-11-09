@@ -11,7 +11,8 @@ module.exports = {
     extend: {
       colors: {
         gray: colors.gray,
-        pokedex: '#BB0D2A'
+        pokedex: '#BB0D2A',
+        cardBg: '#EDEAEA'
       }
     },
   },

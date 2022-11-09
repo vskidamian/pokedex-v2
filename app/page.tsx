@@ -9,13 +9,12 @@ const Page = async () => {
   const pokemons = await getPokemonList();
   return (
     <Container className="mt-8">
-      <Grid>
+      <Grid space={2}>
         {pokemons?.results
           ? pokemons.results.map((pokemon) => (
               <GridItem key={pokemon.id} size={2}>
-                <Card>
-                  <div>{pokemon.name}</div>
-                  <Image src={pokemon.img} alt={pokemon.name} width={180} height={180} />
+                <Card className="rounded p-4">
+                  <Image src={pokemon.img} alt={pokemon.name} width={256} height={256} className="mx-auto" />
                 </Card>
               </GridItem>
             ))

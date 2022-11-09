@@ -6,5 +6,5 @@ type CardProps = {
 };
 
 export const Card = ({ children, className = "" }: CardProps) => {
-  return <div className={`bg-slate-100 shadow-md ${className}`}>{children}</div>;
+  return <div className={`bg-cardBg shadow-md ${className}`}>{children}</div>;
 };
