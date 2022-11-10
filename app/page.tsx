@@ -7,14 +7,16 @@ import Image from "next/image";
 
 const Page = async () => {
   const pokemons = await getPokemonList();
+
   return (
-    <Container className="mt-8">
-      <Grid space={2}>
+    <Container className="my-8">
+      <Grid space={3}>
         {pokemons?.results
           ? pokemons.results.map((pokemon) => (
               <GridItem key={pokemon.id} size={2}>
-                <Card className="rounded p-4">
-                  <Image src={pokemon.img} alt={pokemon.name} width={256} height={256} className="mx-auto" />
+                <Card className="rounded p-4 relative">
+                  <span className="absolute left-4 top-2">{pokemon.id}.</span>
+                  <Image src={pokemon.img} alt={pokemon.name} width={180} height={180} className="mx-auto saturate-[1.25]" />
                 </Card>
               </GridItem>
             ))
