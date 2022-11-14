@@ -3,7 +3,9 @@ import { Grid } from "@ui/Grid";
 import { GridItem } from "@ui/GridItem";
 import { Container } from "@ui/Container";
 import { Card } from "@ui/Card";
+
 import Image from "next/image";
+import Link from "next/link";
 
 const Page = async () => {
   const pokemons = await getPokemonList();
@@ -14,10 +16,12 @@ const Page = async () => {
         {pokemons?.results
           ? pokemons.results.map((pokemon) => (
               <GridItem key={pokemon.id} size={2}>
-                <Card className="rounded p-4 relative">
-                  <span className="absolute left-4 top-2">{pokemon.id}.</span>
-                  <Image src={pokemon.img} alt={pokemon.name} width={180} height={180} className="mx-auto saturate-[1.25]" />
-                </Card>
+                <Link href={`/${pokemon.id}`}>
+                  <Card className="rounded p-4 relative">
+                    <span className="absolute left-4 top-2">{pokemon.id}.</span>
+                    <Image src={pokemon.img} alt={pokemon.name} width={180} height={180} className="mx-auto saturate-[1.25]" />
+                  </Card>
+                </Link>
               </GridItem>
             ))
           : null}
